@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://floorDesert.tres" type="TileSet" id=1]
+[ext_resource path="res://Sprites/Sidscroler Level Items/PNG/Pads/Pad_04_2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Sidscroler Level Items/PNG/Pads/Pad_04_1.png" type="Texture" id=3]
+[ext_resource path="res://LevelPortal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 380, 120 )
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 1114109, 536870914, 0, 1048581, 536870913, 0, 1048589, 536870913, 0, 1048597, 536870913, 0, 1048605, 536870913, 0, 1048613, 536870913, 0, 1048621, 536870912, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 976, 416 )
+scale = Vector2( 0.8, 0.4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 79.9999 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 1552, 352 )
+scale = Vector2( 0.8, 0.4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 0.000244141, 39.9999 )
+shape = SubResource( 1 )
+
+[node name="Area2D" parent="StaticBody2D2" instance=ExtResource( 4 )]
+position = Vector2( 160, -240 )
+scale = Vector2( 1.01884, 2.13013 )
+Next_Level = "res://InGame.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 96, 448 )

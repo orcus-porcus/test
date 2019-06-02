@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_000.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_001.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_002.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_003.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_004.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Elf_1/4_JUMP_003.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Elf_1/2_WALK_000.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Elf_1/4_JUMP_001.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Elf_1/3_RUN_000.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Elf_1/3_RUN_001.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Elf_1/3_RUN_002.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Elf_1/3_RUN_003.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Elf_1/3_RUN_004.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/sky.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/clouds_3.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/clouds_2.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/rocks_2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/rocks_1.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/pines.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/clouds_1.png" type="Texture" id=21]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "jump",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "run",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.71124, 27.1795 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 0.691193, 0.754562 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.490372, 5.84907 )
+scale = Vector2( 0.0784792, 0.0808734 )
+frames = SubResource( 1 )
+animation = "run"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.8797, 11.4339 )
+scale = Vector2( 1.98527, 1.39814 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
+smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 488.7, -250 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+position = Vector2( 541.3, -40 )
+scale = Vector2( 1.96839, 1.21481 )
+texture = ExtResource( 15 )
+
+[node name="Cloud1" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 210, -218.7 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Cloud1"]
+position = Vector2( 470, -11.3 )
+scale = Vector2( 1.51458, 0.98213 )
+texture = ExtResource( 16 )
+
+[node name="Cloud2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 388.7, -210 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Cloud2"]
+position = Vector2( 11.3, 70 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 17 )
+
+[node name="Rock1" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 488.7, -340 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Rock1"]
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 18 )
+
+[node name="Rock2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 488.7, -340 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Rock2"]
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 19 )
+
+[node name="Rock3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 488.7, -340 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Rock3"]
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 20 )
+
+[node name="Cloud3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 550, -340 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Cloud3"]
+position = Vector2( 301.3, 110 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 21 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 36.736, -1.47154 )
+scale = Vector2( 0.0784792, 0.0808734 )
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
