@@ -2,7 +2,7 @@
 
 extends Area2D
 
-export(String, FILE, "*.tscn") var Next_Level
+export(String, FILE, "res://Scenes/*.tscn") var Next_Level
 func _physics_process(delta):
 	var bodies = get_overlapping_bodies()
 	

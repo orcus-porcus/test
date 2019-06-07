@@ -3,8 +3,8 @@
 [ext_resource path="res://floorDesert.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/Sidscroler Level Items/PNG/Pads/Pad_04_2.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Sidscroler Level Items/PNG/Pads/Pad_04_1.png" type="Texture" id=3]
-[ext_resource path="res://LevelPortal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/LevelPortal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 380, 120 )
@@ -51,7 +51,7 @@ shape = SubResource( 1 )
 [node name="Area2D" parent="StaticBody2D2" instance=ExtResource( 4 )]
 position = Vector2( 160, -240 )
 scale = Vector2( 1.01884, 2.13013 )
-Next_Level = "res://InGame.tscn"
+Next_Level = "res://Scenes/InGame.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 96, 448 )

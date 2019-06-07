@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_1/game_background_1.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Buttons.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/cooltext326628325725194.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Button_Leer_Hot.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Button_Selected_Hot.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Button_Start_Comic.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Button_Selected_Comic.png" type="Texture" id=7]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2( 384, 272 )
+scale = Vector2( 0.573116, 0.433552 )
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -144.0
+margin_top = -208.0
+margin_right = 691.0
+margin_bottom = 47.0
+rect_scale = Vector2( 1.36, 1 )
+custom_constants/margin_right = 0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/MarginContainer"]
+margin_left = 62.0
+margin_top = 20.0
+margin_right = 773.0
+margin_bottom = 235.0
+size_flags_horizontal = 4
+custom_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/MarginContainer/VBoxContainer"]
+margin_right = 711.0
+margin_bottom = 115.0
+texture = ExtResource( 3 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="Buttons"]
+margin_right = 835.0
+margin_bottom = 602.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Buttons/MarginContainer2"]
+margin_left = 95.0
+margin_right = 739.0
+margin_bottom = 602.0
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="Buttons/MarginContainer2/VBoxContainer2"]
+margin_right = 644.0
+margin_bottom = 299.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 5 )
+
+[node name="TextureButton2" type="TextureButton" parent="Buttons/MarginContainer2/VBoxContainer2"]
+margin_top = 303.0
+margin_right = 644.0
+margin_bottom = 602.0
+texture_normal = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+[connection signal="pressed" from="Buttons/MarginContainer2/VBoxContainer2/TextureButton" to="Buttons" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer2/VBoxContainer2/TextureButton2" to="Buttons" method="_on_TextureButton2_pressed"]

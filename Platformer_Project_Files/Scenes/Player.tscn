@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_000.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_001.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Elf_1/1_IDLE_002.png" type="Texture" id=4]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/rocks_1.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/pines.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Sidscroler Backgrounds/Standard Background/PNG/game_background_2/layers/clouds_1.png" type="Texture" id=21]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -54,7 +55,8 @@ animations = [ {
 extents = Vector2( 7.71124, 27.1795 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0.691193, 0.754562 )
+position = Vector2( 639.273, 361.719 )
+z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -65,8 +67,7 @@ position = Vector2( -0.490372, 5.84907 )
 scale = Vector2( 0.0784792, 0.0808734 )
 frames = SubResource( 1 )
 animation = "run"
-frame = 2
-playing = true
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.8797, 11.4339 )
@@ -74,9 +75,9 @@ scale = Vector2( 1.98527, 1.39814 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 current = true
 smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 editor/display_folded = true

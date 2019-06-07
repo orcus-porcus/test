@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Sidscroler Level Items/PNG/Bonus/Jump_Bonus_02.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "#Next Level
+
+extends Area2D
+
+export(String, FILE, \"*.tscn\") var Next_Level
+#func _physics_process(delta):
+#	var bodies = get_overlapping_bodies()
+#	
+#	for body in bodies:
+#		if body.name == \"Player\":
+#			get_tree().change_scene(Next_Level)
+
+func _on_LevelPortal_body_entered(body):
+		if \"Player\" in body.name:
+			get_tree().change_scene(Next_Level)
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 64 )
+
+[node name="LevelPortal" type="Area2D"]
+position = Vector2( 50, 70 )
+scale = Vector2( 1.01884, 1.03013 )
+script = SubResource( 2 )
+
+[node name="NextLevel" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Jump_Bonus_04" type="Sprite" parent="."]
+scale = Vector2( 0.326889, 0.321931 )
+texture = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_LevelPortal_body_entered"]

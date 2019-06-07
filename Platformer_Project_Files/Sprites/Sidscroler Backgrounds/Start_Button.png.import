@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/_IDLE_000.png-35e45a2734883f53ff882f6a85b72af7.stex"
+path="res://.import/Start_Button.png-f8d466236f47a0a2f5876905082f1611.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_IDLE_000.png"
-dest_files=[ "res://.import/_IDLE_000.png-35e45a2734883f53ff882f6a85b72af7.stex" ]
+source_file="res://Sprites/Sidscroler Backgrounds/Start_Button.png"
+dest_files=[ "res://.import/Start_Button.png-f8d466236f47a0a2f5876905082f1611.stex" ]
 
 [params]
 

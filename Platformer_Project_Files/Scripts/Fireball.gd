@@ -30,9 +30,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 	
 func _on_Fireball_body_entered(body):
 	fireball_explosion = true
-	#$AnimatedSprite.stop()
-	#$AnimatedSprite.play("fireball_hit")
-	#yield(get_tree().create_timer(5.5),"timeout")
+	if "Enemy" in body.name: #if in coliding body there is a string in name " Enemy" then execute body.dead function from Enemy script
+		body.dead()
 	
 	
 func _on_AnimatedSprite_animation_finished():

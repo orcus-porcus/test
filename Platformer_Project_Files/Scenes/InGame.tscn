@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Pad_2_4.png" type="Texture" id=3]
 [ext_resource path="res://floor.tres" type="TileSet" id=4]
-[ext_resource path="res://LevelPortal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/LevelPortal.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 176, 80 )
@@ -15,16 +15,26 @@ extents = Vector2( 176, 80 )
 position = Vector2( 240, 297 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 736, 320 )
+position = Vector2( 388.7, 496 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1344, 472 )
+position = Vector2( 1840, -16 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1520, 112 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1184, 240 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 848, 348.421 )
 
 [node name="Platforms" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Platform1" type="StaticBody2D" parent="Platforms"]
 editor/display_folded = true
-position = Vector2( 1760, 448 )
+position = Vector2( 1888, 80 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -38,7 +48,7 @@ shape = SubResource( 1 )
 
 [node name="Platform2" type="StaticBody2D" parent="Platforms"]
 editor/display_folded = true
-position = Vector2( 752, 448 )
+position = Vector2( 864, 448 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -48,6 +58,34 @@ position = Vector2( 0, 16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Platforms/Platform2"]
+texture = ExtResource( 3 )
+
+[node name="Platform6" type="StaticBody2D" parent="Platforms"]
+editor/display_folded = true
+position = Vector2( 1200, 336 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform6"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platforms/Platform6"]
+texture = ExtResource( 3 )
+
+[node name="Platform7" type="StaticBody2D" parent="Platforms"]
+editor/display_folded = true
+position = Vector2( 1552, 208 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platforms/Platform7"]
 texture = ExtResource( 3 )
 
 [node name="Platform3" type="StaticBody2D" parent="Platforms"]
@@ -131,5 +169,5 @@ format = 1
 tile_data = PoolIntArray( 2228202, 0, 0, 2228208, 1, 0, 2228214, 1, 0, 2228220, 1, 0, 2162690, 1, 0, 2162696, 1, 0, 2162702, 1, 0, 2162708, 1, 0, 2162714, 1, 0, 2162720, 1, 0, 2162726, 1, 0, 2162732, 1, 0, 2162738, 1, 0, 2162744, 1, 0, 2162750, 1, 0, 2162756, 1, 0, 2162762, 1, 0, 2162768, 1, 0, 2162774, 1, 0, 2162780, 1, 0, 2162786, 1, 0, 2162792, 1, 0, 2162798, 1, 0, 2162804, 1, 0, 2162810, 1, 0, 2162816, 1, 0, 2162822, 2, 0 )
 
 [node name="LevelPortal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1760, 336 )
-Next_Level = "res://Level2.tscn"
+position = Vector2( 2000, -48 )
+Next_Level = "res://Scenes/Level2.tscn"

@@ -11,7 +11,7 @@ export var jump_force =-800
 var on_ground = false
 var is_attacking
 
-const FIREBALL = preload("res://Fireball.tscn") # preload in memory Fireball Object(Scene)
+const FIREBALL = preload("res://Scenes/Fireball.tscn") # preload in memory Fireball Object(Scene)
 
 #onready var timer = get_node("Timer")
 	
@@ -21,6 +21,9 @@ const FIREBALL = preload("res://Fireball.tscn") # preload in memory Fireball Obj
 func _physics_process(delta):
 	motion.y += gravity
 	var friction = false
+	
+	if Input.is_action_pressed("Exit"):
+		get_tree().quit()
 	
 	if Input.is_action_pressed("MoveRight"):
 		if is_attacking == false or is_on_floor() == false:
